@@ -2,7 +2,9 @@ import React from 'react';
 import garis from './../garis.png';
 import PostFeedback from './PostFeedback.js'
 import { collection, query, onSnapshot} from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../utils/firebase";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Feedback() {
     const [dataFeedback, setDataFeedback] = React.useState(null);
@@ -28,6 +30,10 @@ export default function Feedback() {
             </div>
         </div>
         {dataFeedback.map((e) => {
+        /*
+            const bintang = [...document.getElementsByClassName("bintang")];
+            for(let i=0; i<bintang.length; i++) e.nilai[i].classList.add("text-yellow-300")
+     */
                 return (<div>
                 <div className="px-4 relative">
                     <h1 className="text-4xl font-bold text-slate-700">{e.nama}</h1>
@@ -37,7 +43,13 @@ export default function Feedback() {
                               process.env.PUBLIC_URL+e.foto
                           } alt="" />
                         </div>
-                        <h1 className="text-2xl">❤️❤️❤️❤️❤️</h1>
+                        <h1 className="text-2xl">
+                             <FontAwesomeIcon icon={faStar} className="bintang" />
+                             <FontAwesomeIcon icon={faStar} className="bintang" />
+                             <FontAwesomeIcon icon={faStar} className="bintang" />
+                             <FontAwesomeIcon icon={faStar} className="bintang" />
+                             <FontAwesomeIcon icon={faStar} className="bintang" />
+                        </h1>
                         <span className="text-2xl text-primary flex ju">❝</span>
                         <p className="pb-2 text-base text-slate-800 tracking-tight">{e.pesan}</p>
                         <span className="text-2xl text-primary flex justify-end">❞</span>

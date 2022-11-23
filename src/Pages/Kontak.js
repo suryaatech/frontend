@@ -1,4 +1,10 @@
+import $ from 'jquery';
+
 export default function Kontak() {
+    const nama = $("#nama").val()
+    const email = $("#email").val()
+    const pesan = $("#pesan").val()
+    const data = `mailto:hidhzdev@gmail.com?subject=layanan&body=${pesan}`
     return (
         <div class="container pt-24">
             <div class="px-4">
@@ -16,18 +22,20 @@ export default function Kontak() {
                     <div class="w-full lg:w-2/3 mx-auto">
                         <div class="w-full px-4 mb-8">
                             <label data-aos="zoom-in-out" for="nama" class="text-base font-bold text-primary">Nama</label>
-                            <input data-aos="zoom-out-left" class="w-full bg-slate-200 text-secondary p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" type="text" name="nama" id="nama" placeholder="Masukan nama anda"/>
+                            <input data-aos="zoom-out-left" class="w-full bg-slate-200 text-slate-500 p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" type="text" name="nama" id="nama" placeholder="Masukan nama anda"/>
                         </div>
                         <div class="w-full px-4 mb-8">
                             <label data-aos="zoom-in-out" for="email" class="text-base font-bold text-primary">Email</label>
-                            <input data-aos="zoom-out-left" class="w-full bg-slate-200 text-secondary p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" type="email" name="email" id="email" placeholder="Masukan email anda"/>
+                            <input data-aos="zoom-out-left" class="w-full bg-slate-200 text-slate-500 p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" type="email" name="email" id="email" placeholder="Masukan email anda"/>
                         </div>
                         <div class="w-full px-4 mb-8">
                            <label data-aos="zoom-in-out" for="pesan" class="text-base font-bold text-primary">Pesan</label>
-                            <textarea data-aos="zoom-out-left" class="w-full bg-slate-200 text-secondary p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32" type="text" name="pesan" id="pesan" placeholder="Masukan pesan anda"></textarea>
+                            <textarea data-aos="zoom-out-left" class="w-full bg-slate-200 text-slate-500 p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32" type="text" name="pesan" id="pesan" placeholder="Masukan pesan anda"></textarea>
                         </div>
                         <div class="w-full px-4">
-                            <button data-aos="zoom-in-out" type="submit" class="text-base font-bold bg-primary px-10 py-2 text-white hover:bg-sky-900 rounded-full w-full">Kirim</button>
+                            <a data-aos="zoom-in-out" class="text-base font-bold bg-primary px-10 py-2 text-white hover:bg-sky-900 rounded-full w-full"
+                            href={data}
+                            >Kirim</a>
                         </div>
                     </div>
                 </form>
